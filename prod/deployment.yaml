@@ -3,17 +3,17 @@ kind: Deployment
 metadata:
   name: production-deployment
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: production-app
+      app: production
   template:
     metadata:
       labels:
-        app: production-app
+        app: production
     spec:
       containers:
-      - name: production-container
-        image: us-east1-docker.pkg.dev/qwiklabs-gcp-01-76adc4f61891/my-repository/hello-cloudbuild:v1.0
+      - name: sample-app
+        image: us-east1-docker.pkg.dev/qwiklabs-gcp-01-76adc4f61891/my-repository/hello-cloudbuild:v2.0
         ports:
         - containerPort: 8080
